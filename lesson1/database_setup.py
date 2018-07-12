@@ -22,6 +22,13 @@ class Restaurant(Base):
     Integer, primary_key = True
     )
 
+    @property
+    def serialize(self):
+        #Return object data in easily serializable format
+        return {
+            'name': self.name,
+            'id': self.id
+        }
 
 class MenuItem(Base):
     __tablename__ = 'menu_item'
