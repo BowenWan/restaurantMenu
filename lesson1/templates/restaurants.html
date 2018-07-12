@@ -2,6 +2,16 @@
   <body>
     <a href='{{url_for('newRestaurant')}}'>Create New Restaurant</a>
     <br><br>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li><strong> {{ message }} </strong></li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
     {% if items %}
       <!-- The line of code below with the single bracket and a percent sign on either side is logical code-->
       {% for i in items %}
